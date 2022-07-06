@@ -23,7 +23,7 @@
                                                 <thead bgcolor="">
                                                 <tr>
                                     <th width="9"><b>No</b></th>
-                                    <th><b>Nama Pemili</b></th>
+                                    <th><b>Nama Pemilik</b></th>
                                     <th> <b>Nama Hewan</b></th>
                                       <th><b>Jenis Vaksin</b></th>
                                     <th><b>Tanggal Vaksin</b></th>
