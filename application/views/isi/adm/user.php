@@ -57,7 +57,7 @@
 
                <?php if($this->session->userdata('username') != $user->username){ ?>
 
-                     <?php if($user->level == "Admin Desa" || $user->level == "Pegawai"){ ?>
+                     <?php if($user->level != "Admin"){ ?>
                      <div class="d-flex order-actions">
                         <a onclick="deleteConfirm('<?php echo site_url('adm/user/hapus/'.$user->id_user); ?>')" href="#!" class="ms-4" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-danger"><i class='bx bx-trash'></i></a>
                   
@@ -123,7 +123,6 @@
                           <select name="level" id="select" required class="form-control">
                                         <option value="" readonly>-- Pilih Level --</option>  
                                     <option value="Administrator" readonly>Administrator</option>
-                                    <option value="Admin Desa" readonly>Admin Desa</option>
                                     <option value="Kepala Dinas" readonly>Kepala Dinas</option>
                                     <option value="Kepala Bidang" readonly>Kepala Bidang</option>
                                            </select>
