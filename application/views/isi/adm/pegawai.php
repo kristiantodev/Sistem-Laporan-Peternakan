@@ -52,7 +52,6 @@
                                     <td>
                      <div class="d-flex order-actions">
                         <a onclick="deleteConfirm('<?php echo site_url('adm/pegawai/hapus/'.$k->id_user); ?>')" href="#!" class="btn btn-danger waves-effect waves-light" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-danger"><i class='bx bx-trash'></i></a>
-
                         <a data-bs-toggle="modal" data-bs-target="#bb<?=$k->id_pegawai?>" class="btn btn-primary waves-effect waves-light"><font color="white"><i class="bx bx-edit"></i></font></a>
                   
                       </div>

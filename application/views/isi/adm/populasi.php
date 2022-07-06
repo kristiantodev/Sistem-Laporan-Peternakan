@@ -40,9 +40,11 @@
                                      <td>
                                        <a href="#" data-bs-toggle="modal" data-bs-target="#bb<?=$k->id_populasi?>">
                                       <?php echo $k->nm_populasi ?></a></td>
-                                    <td><?php echo $k->nm_desa ?></td>
+                                    <td>Desa<?php echo $k->nm_desa ?><br>Kec.<?php echo $k->nm_kecamatan ?></td>
                                      <td><?php echo $k->bulan ?> <?php echo $k->tahun ?></td>
-                                     <td><?php
+                                     <td>
+                                      ACC Admin :<br>
+                                      <?php
                                        if ($k->admin_acc == 0) {
                                           $status="New";
                                           $badge="badge bg-info";
@@ -55,6 +57,21 @@
                                        }
                                       ?>
                                         <span class="<?=$badge;?>"><?=$status;?></span>
+
+                                        <br>ACC Kepala Bidang :<br>
+                                      <?php
+                                       if ($k->kep_bidang_acc == 0) {
+                                          $status2="Belum di ACC";
+                                          $badge2="badge bg-info";
+                                       }else if ($k->kep_bidang_acc == 1){
+                                          $status2="Data Diterima";
+                                          $badge2="badge bg-success";
+                                       }else{
+                                          $status2="Data Ditolak";
+                                          $badge2="badge bg-danger";
+                                       }
+                                      ?>
+                                        <span class="<?=$badge2;?>"><?=$status2;?></span>
                                       </td>
                                    <td>
                                      <?php if ($k->admin_acc == 0) { ?>
