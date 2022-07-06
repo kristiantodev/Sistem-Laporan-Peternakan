@@ -40,7 +40,7 @@
                                      <td>
                                        <a href="#" data-bs-toggle="modal" data-bs-target="#bb<?=$k->id_populasi?>">
                                       <?php echo $k->nm_populasi ?></a></td>
-                                    <td>Desa<?php echo $k->nm_desa ?><br>Kec.<?php echo $k->nm_kecamatan ?></td>
+                                    <td>Desa <?php echo $k->nm_desa ?><br>Kec.<?php echo $k->nm_kecamatan ?></td>
                                      <td><?php echo $k->bulan ?> <?php echo $k->tahun ?></td>
                                      <td>
                                       ACC Admin :<br>

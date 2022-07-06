@@ -53,7 +53,7 @@ function printDiv(elementId) {
    <option value="<?php echo $u;?>"><?php echo $u;?></option>
    <?php }?>
 </select></td>
-                                    <td width="220">
+                                    <td>
                                         <button type="submit" class="btn btn-primary">
                                             <i class="fa fa-search"></i>&nbsp; Filter
                                         </button>
@@ -62,6 +62,11 @@ function printDiv(elementId) {
                     <a href="javascript:printDiv('box');">
                                             <button type="button" class="btn btn-primary waves-effect waves-light">
                                     <i class="fa fa-print"></i> &nbsp;&nbsp;Cetak&nbsp;&nbsp;&nbsp;</button>
+                                </a>
+
+                                <a href="<?php echo site_url();?>adm/laporan/kabupaten">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light">
+                                    <i class="fa fa-print"></i> Reset Filter</button>
                                 </a>
                                        
                                     </td>

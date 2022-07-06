@@ -17,7 +17,7 @@ class Populasi extends My_Controller {
 	{
         $populasi = $this->db->query("SELECT*FROM populasi LEFT JOIN 
             desa ON desa.id_desa=populasi.id_desa
-            LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan WHERE populasi.admin_acc=1");
+            LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan WHERE populasi.admin_acc=1 ORDER BY populasi.kep_bidang_acc");
         $populasiDetail = $this->db->query("SELECT*FROM populasi_detail");
 
          $data=array(

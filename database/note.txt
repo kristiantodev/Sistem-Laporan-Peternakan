@@ -1,0 +1,18 @@
+Admin :
+manda 
+manda
+
+Pegawai :
+2022001
+2022001
+
+Kepala Bidang :
+kepala_bidang
+kepala_bidang
+
+Kepala Dinas :
+kepala_dinas
+kepala_dinas
+
+Ketika Tambah Pegawai
+NIP jadi username dan password default masuk ke sistem

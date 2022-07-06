@@ -96,7 +96,7 @@
             <div class="menu-title">Laporan Populasi</div>
           </a>
           <ul>
-            <li> <a href="<?php echo site_url();?>adm/laporan/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabuten/Kecamatan</a>
+            <li> <a href="<?php echo site_url();?>adm/laporan/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten/Kecamatan</a>
             </li>
             <li> <a href="<?php echo site_url();?>adm/laporan"><i class="bx bx-right-arrow-alt"></i>Kecamatan/Desa</a>
           </ul>
@@ -132,7 +132,7 @@
             <div class="menu-title">Laporan Populasi</div>
           </a>
           <ul>
-            <li> <a href="<?php echo site_url();?>kepala_dinas/populasi/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabuten/Kecamatan</a>
+            <li> <a href="<?php echo site_url();?>kepala_dinas/populasi/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten/Kecamatan</a>
             </li>
             <li> <a href="<?php echo site_url();?>kepala_dinas/populasi"><i class="bx bx-right-arrow-alt"></i>Kecamatan/Desa</a>
           </ul>
