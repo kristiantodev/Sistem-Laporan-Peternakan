@@ -98,7 +98,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                       </div>
-                      <form action="<?php echo site_url('adm/vaksin/add'); ?>" method="post">
+                      <form action="<?php echo site_url('pegawai/vaksin/add'); ?>" method="post">
                         <input type="hidden" name="id_pemilik" value="<?=$k->id_pemilik?>">
                       <div class="modal-body">
                         <fieldset class="form-group floating-label-form-group">
