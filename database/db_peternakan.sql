@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jul 2022 pada 19.36
+-- Waktu pembuatan: 07 Jul 2022 pada 08.32
 -- Versi server: 5.7.21-log
 -- Versi PHP: 8.0.0
 
@@ -40,7 +40,8 @@ CREATE TABLE `desa` (
 
 INSERT INTO `desa` (`id_desa`, `id_kecamatan`, `nm_desa`, `deleted`) VALUES
 (1, 1, 'Indralaya Indah', 0),
-(2, 3, 'Kaliwulu', 0);
+(2, 3, 'Kaliwulu', 0),
+(3, 4, 'Wotgali', 0);
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,8 @@ CREATE TABLE `kecamatan` (
 INSERT INTO `kecamatan` (`id_kecamatan`, `nm_kecamatan`, `deleted`) VALUES
 (1, 'Indralaya', 0),
 (2, 'Indralaya Utara', 0),
-(3, 'Tanjung Batu', 0);
+(3, 'Tanjung Batu', 1),
+(4, 'Plered', 0);
 
 -- --------------------------------------------------------
 
@@ -160,17 +162,23 @@ CREATE TABLE `populasi` (
   `tahun` varchar(10) NOT NULL,
   `is_final` int(11) NOT NULL,
   `admin_acc` int(11) NOT NULL,
-  `kep_bidang_acc` int(11) NOT NULL
+  `kep_bidang_acc` int(11) NOT NULL,
+  `id_pemilik` int(11) NOT NULL,
+  `status_kepemilikan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `populasi`
 --
 
-INSERT INTO `populasi` (`id_populasi`, `nm_populasi`, `id_desa`, `file`, `bulan`, `tahun`, `is_final`, `admin_acc`, `kep_bidang_acc`) VALUES
-('62c453513dd1b', 'Populasi Desa Indralaya Indah Januari 2022', 1, '62c453513dd1b.pdf', 'Januari', '2022', 0, 1, 1),
-('62c45ab52fc4c', 'Populasi Desa Indralaya Indah Februari2022', 1, 'default.png', 'Juli', '2004', 0, 1, 1),
-('62c46593d1bfe', 'Populasi Desa Kaliwulu Januari 2022', 2, 'default.png', 'Januari', '2003', 0, 1, 1);
+INSERT INTO `populasi` (`id_populasi`, `nm_populasi`, `id_desa`, `file`, `bulan`, `tahun`, `is_final`, `admin_acc`, `kep_bidang_acc`, `id_pemilik`, `status_kepemilikan`) VALUES
+('62c453513dd1b', 'Populasi Desa Indralaya Indah Januari 2022', 1, '62c453513dd1b.pdf', 'Januari', '2022', 0, 1, 1, 0, ''),
+('62c45ab52fc4c', 'Populasi Desa Indralaya Indah Februari2022', 1, 'default.png', 'Juli', '2004', 0, 1, 1, 0, ''),
+('62c46593d1bfe', 'Populasi Desa Kaliwulu Januari 2022', 2, 'default.png', 'Januari', '2003', 0, 1, 1, 0, ''),
+('62c4d76d647a8', 'Populasi data Ternak Indralaya Indah 2022', 1, 'default.png', 'Januari', '2020', 0, 1, 2, 0, ''),
+('62c4e2529274d', 'Agung', 2, 'default.png', 'Februari', '2002', 0, 1, 1, 0, ''),
+('62c66fa3338f3', 'Populasi hewan milik Kris', 1, 'default.png', 'Juli', '2022', 0, 1, 1, 1, 'Pribadi'),
+('62c67c560e2be', 'Populasi Hewan Gaduan Test', 2, 'default.png', 'Juli', '2022', 0, 1, 1, 2, 'Gaduan');
 
 -- --------------------------------------------------------
 
@@ -182,6 +190,7 @@ CREATE TABLE `populasi_detail` (
   `id_detail` int(11) NOT NULL,
   `id_populasi` varchar(60) NOT NULL,
   `umur_hewan` varchar(40) NOT NULL,
+  `jk_hewan` varchar(20) NOT NULL,
   `hewan_1` int(11) NOT NULL,
   `hewan_2` int(11) NOT NULL,
   `hewan_3` int(11) NOT NULL,
@@ -199,16 +208,34 @@ CREATE TABLE `populasi_detail` (
 -- Dumping data untuk tabel `populasi_detail`
 --
 
-INSERT INTO `populasi_detail` (`id_detail`, `id_populasi`, `umur_hewan`, `hewan_1`, `hewan_2`, `hewan_3`, `hewan_4`, `hewan_5`, `hewan_6`, `hewan_7`, `hewan_8`, `hewan_9`, `hewan_10`, `hewan_11`) VALUES
-(7, '62c453513dd1b', 'Anak 0-1 Tahun', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, '62c453513dd1b', 'Dara 1-2 Tahun', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(9, '62c453513dd1b', 'Dewasa > 2 Tahun', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(10, '62c45ab52fc4c', 'Anak 0-1 Tahun', 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0),
-(11, '62c45ab52fc4c', 'Dara 1-2 Tahun', 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0),
-(12, '62c45ab52fc4c', 'Dewasa > 2 Tahun', 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
-(13, '62c46593d1bfe', 'Anak 0-1 Tahun', 1, 4, 3, 4, 3, 7, 1, 10, 0, 100, 0),
-(14, '62c46593d1bfe', 'Dara 1-2 Tahun', 2, 1, 2, 2, 16, 1, 12, 6, 10, 10, 0),
-(15, '62c46593d1bfe', 'Dewasa > 2 Tahun', 3, 1, 2, 2, 16, 2, 2, 23, 0, 0, 200);
+INSERT INTO `populasi_detail` (`id_detail`, `id_populasi`, `umur_hewan`, `jk_hewan`, `hewan_1`, `hewan_2`, `hewan_3`, `hewan_4`, `hewan_5`, `hewan_6`, `hewan_7`, `hewan_8`, `hewan_9`, `hewan_10`, `hewan_11`) VALUES
+(7, '62c453513dd1b', 'Anak 0-1 Tahun', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, '62c453513dd1b', 'Dara 1-2 Tahun', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(9, '62c453513dd1b', 'Dewasa > 2 Tahun', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(10, '62c45ab52fc4c', 'Anak 0-1 Tahun', '', 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0),
+(11, '62c45ab52fc4c', 'Dara 1-2 Tahun', '', 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0),
+(12, '62c45ab52fc4c', 'Dewasa > 2 Tahun', '', 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+(13, '62c46593d1bfe', 'Anak 0-1 Tahun', '', 1, 4, 3, 4, 3, 7, 1, 10, 0, 100, 0),
+(14, '62c46593d1bfe', 'Dara 1-2 Tahun', '', 2, 1, 2, 2, 16, 1, 12, 6, 10, 10, 0),
+(15, '62c46593d1bfe', 'Dewasa > 2 Tahun', '', 3, 1, 2, 2, 16, 2, 2, 23, 0, 0, 200),
+(16, '62c4d76d647a8', 'Anak 0-1 Tahun', '', 1, 2, 4, 0, 11, 0, 0, 0, 0, 16, 0),
+(17, '62c4d76d647a8', 'Dara 1-2 Tahun', '', 2, 0, 0, 10, 0, 12, 0, 14, 0, 0, 0),
+(18, '62c4d76d647a8', 'Dewasa > 2 Tahun', '', 3, 0, 0, 0, 0, 0, 13, 0, 15, 0, 187),
+(19, '62c4e2529274d', 'Anak 0-1 Tahun', '', 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0),
+(20, '62c4e2529274d', 'Dara 1-2 Tahun', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(21, '62c4e2529274d', 'Dewasa > 2 Tahun', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(22, '62c66fa3338f3', 'Anak 0-1 Tahun', 'Jantan', 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0),
+(23, '62c66fa3338f3', 'Anak 0-1 Tahun', 'Betina', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
+(24, '62c66fa3338f3', 'Dara 1-2 Tahun', 'Jantan', 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0),
+(25, '62c66fa3338f3', 'Dara 1-2 Tahun', 'Betina', 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0),
+(26, '62c66fa3338f3', 'Dewasa > 2 Tahun', 'Jantan', 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0),
+(27, '62c66fa3338f3', 'Dewasa > 2 Tahun', 'Betina', 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0),
+(28, '62c67c560e2be', 'Anak 0-1 Tahun', 'Jantan', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3),
+(29, '62c67c560e2be', 'Anak 0-1 Tahun', 'Betina', 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0),
+(30, '62c67c560e2be', 'Dara 1-2 Tahun', 'Jantan', 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0),
+(31, '62c67c560e2be', 'Dara 1-2 Tahun', 'Betina', 0, 0, 0, 5, 0, 0, 0, 3, 0, 0, 0),
+(32, '62c67c560e2be', 'Dewasa > 2 Tahun', 'Jantan', 0, 0, 0, 0, 4, 0, 3, 0, 0, 0, 0),
+(33, '62c67c560e2be', 'Dewasa > 2 Tahun', 'Betina', 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -234,8 +261,9 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `nm_user`, `level`, `foto
 ('62b8556487642', 'manda', '$2y$10$Yu1ziUFIrjktqeBPpLtfiO5mWh9XXdhdwHIpYT8ThaGTXl13NJa1q', 'Manda Alamanda', 'Administrator', '1.jpg', 0),
 ('62c3a2a66ee68', 'kepala_dinas', '$2y$10$ZiZ51NocTX3mRk/ZUWW/puKNci4B8Zkq43JzJXpaUwd/CKWrkZjPG', 'Kristianto, M.Kom', 'Kepala Dinas', '1.jpg', 0),
 ('62c3a2c3986eb', 'kepala_bidang', '$2y$10$zhXf8HZ6YBvF16cO44OgKOJhY5DzUZpA3AD23IN8wj9An4W4ph.6S', 'dr. Ikhlasul Amal, M.Kom', 'Kepala Bidang', '1.jpg', 0),
-('62c3cea438ad9', '2022001', '$2y$10$Fftsdk6koBSJxfoSTlTRDeFYLsiiOCikvIwcrof0aHJ7hRCUsBfc6', 'Rizky', 'Pegawai', '62c3cea438ad9.JPG', 1),
-('62c4652c36640', '2022002', '$2y$10$hCzQLsEeazepp1C/82JsHOVpkawZCvg.eyQ/os5eiXBIYNCtIEcpq', 'Kristianto', 'Pegawai', '1.jpg', 2);
+('62c3cea438ad9', '2022001', '$2y$10$Fftsdk6koBSJxfoSTlTRDeFYLsiiOCikvIwcrof0aHJ7hRCUsBfc6', 'Rizky', 'Pegawai', '840018941.JPG', 1),
+('62c4652c36640', '2022002', '$2y$10$hCzQLsEeazepp1C/82JsHOVpkawZCvg.eyQ/os5eiXBIYNCtIEcpq', 'Kristianto', 'Pegawai', '1.jpg', 2),
+('62c527a3ae39b', 'cickesambi', '$2y$10$yTIXKivTu9A1ypzlJ9B8UOOrtEcSFjReO0IFW1ZKPMLaSVtW16Zsq', 'manda', 'Kepala Dinas', '1.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -331,7 +359,7 @@ ALTER TABLE `vaksin`
 -- AUTO_INCREMENT untuk tabel `desa`
 --
 ALTER TABLE `desa`
-  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `hewan`
@@ -343,7 +371,7 @@ ALTER TABLE `hewan`
 -- AUTO_INCREMENT untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
-  MODIFY `id_kecamatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kecamatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `pegawai`
@@ -361,7 +389,7 @@ ALTER TABLE `pemilik_ternak`
 -- AUTO_INCREMENT untuk tabel `populasi_detail`
 --
 ALTER TABLE `populasi_detail`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `vaksin`
