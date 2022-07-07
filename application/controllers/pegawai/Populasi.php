@@ -18,10 +18,15 @@ class Populasi extends My_Controller {
         $idpopulasi = $this->session->userdata('id_desa');
         $populasi = $this->db->query("SELECT*FROM populasi WHERE id_desa='$idpopulasi'");
         $populasiDetail = $this->db->query("SELECT*FROM populasi_detail");
+        $pemilik = $this->db->query("SELECT*FROM pemilik_ternak
+        LEFT JOIN desa ON desa.id_desa=pemilik_ternak.id_desa 
+        LEFT JOIN kecamatan ON desa.id_kecamatan = kecamatan.id_kecamatan
+        WHERE pemilik_ternak.deleted=0 AND pemilik_ternak.id_desa='$idpopulasi'");
 
          $data=array(
             "populasiList"=>$populasi->result(),
             "populasiDetail"=>$populasiDetail->result(),
+            "pemilikList"=>$pemilik->result(),
         );
 		 $this->Mypage('isi/pegawai/populasi',$data);
 	}
@@ -65,6 +70,7 @@ class Populasi extends My_Controller {
                  $dataPopulasi=array(
                      "id_populasi"=>$id,
                      "umur_hewan"=>$_POST['umur_hewan_'.$i],
+                     "jk_hewan"=>$_POST['jk_hewan_'.$i],
                      "hewan_1"=>$_POST['hewan1_'.$i],
                      "hewan_2"=>$_POST['hewan2_'.$i],
                      "hewan_3"=>$_POST['hewan3_'.$i],
@@ -92,7 +98,9 @@ class Populasi extends My_Controller {
                 "file" => $pdfFile,
                 "is_final"=>0,
                 "admin_acc"=>0,
-                "kep_bidang_acc"=>0
+                "kep_bidang_acc"=>0,
+                "id_pemilik"=>$_POST['id_pemilik'],
+                "status_kepemilikan"=>$_POST['status_kepemilikan']
             );
             $this->db->insert('populasi',$data);
             $this->session->set_flashdata('sukses',"berhasil");

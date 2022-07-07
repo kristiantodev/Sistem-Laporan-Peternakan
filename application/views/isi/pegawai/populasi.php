@@ -113,13 +113,24 @@
                       </div>
                       <form action="<?php echo site_url('pegawai/populasi/add'); ?>" method="post" enctype="multipart/form-data">
                       <div class="modal-body">
+
+                      <div class="row">
+               <div class="col-lg-8 col-md-6 col-6">
                         <fieldset class="form-group floating-label-form-group">
                           <label for="email">Judul Populasi</label>
                           <input type="text" name="nm_populasi" class="form-control  round " required oninvalid="this.setCustomValidity('Harap Diisi...')" oninput="setCustomValidity('')">
                         </fieldset>
+               </div>
+               <div class="col-lg-4 col-md-6 col-6">
+               <fieldset class="form-group floating-label-form-group">
+            <label for="email">Upload Bukti *pdf</label><br>
+            <input type="file" name="file" class="form-control">
+          </fieldset>
+               </div>
+                      </div>
 
                         <div class="row">
-               <div class="col-lg-4 col-md-6 col-6">
+               <div class="col-lg-3 col-md-6 col-6">
                 <fieldset class="form-group floating-label-form-group">
                           <label for="email">Bulan</label>
                         <select name="bulan" id="select" required class="form-control">
@@ -138,14 +149,14 @@
 </fieldset>
               </div>
 
-              <div class="col-lg-4 col-md-6 col-6">
+              <div class="col-lg-3 col-md-6 col-6">
                 <fieldset class="form-group floating-label-form-group">
   <label for="email">Tahun</label>
                         <select name="tahun" id="select" required class="form-control">
                           <option value="">-- Pilih Tahun --</option>
     <?php
 
-    for ($u = 2000; $u <= 2030; $u++) {
+    for ($u = 2015; $u <= 2030; $u++) {
     
 ?>
    <option value="<?php echo $u;?>"><?php echo $u;?></option>
@@ -153,11 +164,27 @@
 </select>
 </fieldset>
               </div>
-              <div class="col-lg-4 col-md-6 col-6">
-                <fieldset class="form-group floating-label-form-group">
-            <label for="email">Upload Bukti *pdf</label><br>
-            <input type="file" name="file" class="form-control">
-          </fieldset>
+              <div class="col-lg-3 col-md-6 col-6">
+              <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Pemilik</label>
+                          <select name="id_pemilik" id="select" required class="form-control">
+                            <option value="">-- Pilih Pemilik --</option>
+                  <?php foreach ($pemilikList as $k): ?>
+                  <option value="<?php echo $k->id_pemilik ?>"><?php echo $k->nm_pemilik ?></option>
+                  <?php endforeach; ?>
+                </select>
+                        </fieldset>
+              </div>
+              <div class="col-lg-3 col-md-6 col-6">
+              <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Status Kepemilikan</label>
+                          <select name="status_kepemilikan" id="select" required class="form-control">
+                            <option value="">-- Pilih Status --</option>
+                            <option value="Pribadi">Pribadi</option>
+                            <option value="Gaduan">Gaduan</option>
+                  
+                </select>
+                        </fieldset>
               </div>
             </div>
 
@@ -165,9 +192,11 @@
 Populasi Hewan Ternak :
 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                                 <thead bgcolor="">
+                                                  <tr align="center"><th colspan="14" align="center">Jenis Hewan</th></tr>
                                                 <tr>
                                     <th width="9"><b>No</b></th>
                                     <th><b>Umur</b></th>
+                                    <th><b>Gender</b></th>
                                     <th><b>Sapi Perah</b></th>
                                     <th><b>Sapi Potong</b></th>
                                     <th><b>Kerbau</b></th>
@@ -193,23 +222,47 @@ Populasi Hewan Ternak :
                   }
               ?>
 
+                <?php for ($jk = 1; $jk <= 2; $jk++) { ?>
+
+                  <?php
+                  $index=($a*$jk);
+                  if ($jk==1) {     
+                    $jkH="Jantan";
+                  }else if ($jk==2) {
+                    $jkH="Betina";
+                  }
+
+                  if ($index==2 && $jk==1 ) {     
+                    $index=3;
+                  }else if ($jk==1 && $index=3) {
+                    $index=5;
+                  }
+
+                  if($a==1 && $jk==1){
+                    $index=$index-4;
+                  }
+              ?>
+
               <tr>
-                <td><?=$a;?></td>
-                 <td><input type="hidden" value="<?=$remark;?>" name="umur_hewan_<?=$a;?>" class="form-control">
+                <td><?=$index;?></td>
+                <td><input type="hidden" value="<?=$remark;?>" name="umur_hewan_<?=$index;?>" class="form-control">
                   <?=$remark;?></td>
-                 <td><input type="number" value="0" name="hewan1_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan2_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan3_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan4_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan5_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan6_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan7_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan8_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan9_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan10_<?=$a;?>" class="form-control"></td>
-                 <td><input type="number" value="0" name="hewan11_<?=$a;?>" class="form-control"></td>
+                 <td><input type="hidden" value="<?=$jkH;?>" name="jk_hewan_<?=$index;?>" class="form-control">
+                  <?=$jkH;?></td>
+                 <td><input type="number" value="0" name="hewan1_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan2_<?=$index;?>" min="0"  class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan3_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan4_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan5_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan6_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan7_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan8_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan9_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan10_<?=$index;?>" min="0" class="form-control"></td>
+                 <td><input type="number" value="0" name="hewan11_<?=$index;?>" min="0" class="form-control"></td>
               </tr>
-                      
+
+              <?php }?>        
 
             <?php }?>
                                              
@@ -236,7 +289,7 @@ Populasi Hewan Ternak :
                     <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                       <div class="modal-header bg-primary">
-                      <h6 class="modal-title"><font color='white'><i class="fa fa-user-plus"></i>  Tambah Populasi Hewan Ternak</font></h6>
+                      <h6 class="modal-title"><font color='white'><i class="fa fa-user-plus"></i>Populasi Hewan Ternak</font></h6>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                       </div>
@@ -248,6 +301,7 @@ Populasi Hewan Ternak :
                                                 <thead bgcolor="">
                                                 <tr>
                                     <th><b>Umur</b></th>
+                                    <th><b>Gender</b></th>
                                     <th><b>Sapi Perah</b></th>
                                     <th><b>Sapi Potong</b></th>
                                     <th><b>Kerbau</b></th>
@@ -267,6 +321,7 @@ Populasi Hewan Ternak :
 
               <tr>
                 <td><?=$d->umur_hewan;?></td>
+                <td><?=$d->jk_hewan;?></td>
                  <td><input type="number" disabled value="<?=$d->hewan_1;?>" name="hewan1_<?=$a;?>" class="form-control"></td>
                  <td><input type="number" disabled value="<?=$d->hewan_2;?>" name="hewan2_<?=$a;?>" class="form-control"></td>
                  <td><input type="number" disabled value="<?=$d->hewan_3;?>" name="hewan3_<?=$a;?>" class="form-control"></td>
@@ -279,7 +334,6 @@ Populasi Hewan Ternak :
                  <td><input type="number" disabled value="<?=$d->hewan_10;?>" name="hewan10_<?=$a;?>" class="form-control"></td>
                  <td><input type="number" disabled value="<?=$d->hewan_11;?>" name="hewan11_<?=$a;?>" class="form-control"></td>
               </tr>
-                      
                <?php } ?>
             <?php endforeach; ?>
                                              

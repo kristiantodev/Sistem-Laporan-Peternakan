@@ -244,7 +244,7 @@ Populasi Hewan Ternak :
                     <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                       <div class="modal-header bg-primary">
-                      <h6 class="modal-title"><font color='white'><i class="fa fa-user-plus"></i>  Tambah Populasi Hewan Ternak</font></h6>
+                      <h6 class="modal-title"><font color='white'><i class="fa fa-user-plus"></i>  Populasi Hewan Ternak</font></h6>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                       </div>
@@ -256,6 +256,7 @@ Populasi Hewan Ternak :
                                                 <thead bgcolor="">
                                                 <tr>
                                     <th><b>Umur</b></th>
+                                    <th><b>Gender</b></th>
                                     <th><b>Sapi Perah</b></th>
                                     <th><b>Sapi Potong</b></th>
                                     <th><b>Kerbau</b></th>
@@ -275,6 +276,7 @@ Populasi Hewan Ternak :
 
               <tr>
                 <td><?=$d->umur_hewan;?></td>
+                <td><?=$d->jk_hewan;?></td>
                  <td><input type="number" disabled value="<?=$d->hewan_1;?>" name="hewan1_<?=$a;?>" class="form-control"></td>
                  <td><input type="number" disabled value="<?=$d->hewan_2;?>" name="hewan2_<?=$a;?>" class="form-control"></td>
                  <td><input type="number" disabled value="<?=$d->hewan_3;?>" name="hewan3_<?=$a;?>" class="form-control"></td>
