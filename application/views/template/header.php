@@ -68,6 +68,8 @@
             </li>
             <li> <a href="<?php echo site_url();?>adm/pemilik_ternak"><i class="bx bx-right-arrow-alt"></i>Pemilik Ternak</a>
             </li>
+            <li> <a href="<?php echo site_url();?>adm/hewan"><i class="bx bx-right-arrow-alt"></i>Jenis Hewan</a>
+            </li>
           </ul>
         </li>
         <li>

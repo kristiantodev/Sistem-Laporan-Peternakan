@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jul 2022 pada 08.32
+-- Waktu pembuatan: 23 Jul 2022 pada 06.42
 -- Versi server: 5.7.21-log
 -- Versi PHP: 8.0.0
 
@@ -52,25 +52,27 @@ INSERT INTO `desa` (`id_desa`, `id_kecamatan`, `nm_desa`, `deleted`) VALUES
 CREATE TABLE `hewan` (
   `id_hewan` int(11) NOT NULL,
   `nm_hewan` varchar(60) NOT NULL,
-  `klasifikasi` varchar(60) NOT NULL
+  `klasifikasi` varchar(60) NOT NULL,
+  `deleted` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `hewan`
 --
 
-INSERT INTO `hewan` (`id_hewan`, `nm_hewan`, `klasifikasi`) VALUES
-(1, 'Sapi', 'Sapi Perah'),
-(2, 'Sapi', 'Sapi Potong'),
-(3, 'Kerbau', ''),
-(4, 'Kambing', ''),
-(5, 'Domba', ''),
-(6, 'Kuda', ''),
-(7, 'Babi', ''),
-(8, 'Ayam', 'Ayam Buras'),
-(9, 'Ayam', 'Ayam Pedaging'),
-(10, 'Ayam', 'Ayam Petelur'),
-(11, 'Itik', '');
+INSERT INTO `hewan` (`id_hewan`, `nm_hewan`, `klasifikasi`, `deleted`) VALUES
+(1, 'Sapi Perah', 'Sapi Perah', 0),
+(2, 'Sapi Potong', 'Sapi Potong', 0),
+(3, 'Kerbau', '', 0),
+(4, 'Kambing', '', 0),
+(5, 'Domba', '', 0),
+(6, 'Kuda', '', 0),
+(7, 'Babi', '', 0),
+(8, 'Ayam Buras', 'Ayam Buras', 0),
+(9, 'Ayam Pedaging', 'Ayam Pedaging', 0),
+(10, 'Ayam Petelur', 'Ayam Petelur', 0),
+(11, 'Itik', '', 0),
+(12, 'ok  wkwk', '', 1);
 
 -- --------------------------------------------------------
 
@@ -178,7 +180,8 @@ INSERT INTO `populasi` (`id_populasi`, `nm_populasi`, `id_desa`, `file`, `bulan`
 ('62c4d76d647a8', 'Populasi data Ternak Indralaya Indah 2022', 1, 'default.png', 'Januari', '2020', 0, 1, 2, 0, ''),
 ('62c4e2529274d', 'Agung', 2, 'default.png', 'Februari', '2002', 0, 1, 1, 0, ''),
 ('62c66fa3338f3', 'Populasi hewan milik Kris', 1, 'default.png', 'Juli', '2022', 0, 1, 1, 1, 'Pribadi'),
-('62c67c560e2be', 'Populasi Hewan Gaduan Test', 2, 'default.png', 'Juli', '2022', 0, 1, 1, 2, 'Gaduan');
+('62c67c560e2be', 'Populasi Hewan Gaduan Test', 2, 'default.png', 'Juli', '2022', 0, 1, 1, 2, 'Gaduan'),
+('62cbe641e8892', 'Populasi Desa Indralaya Indah Januari 2022', 2, 'default.png', 'Juli', '2022', 0, 0, 0, 2, 'Gaduan');
 
 -- --------------------------------------------------------
 
@@ -235,7 +238,13 @@ INSERT INTO `populasi_detail` (`id_detail`, `id_populasi`, `umur_hewan`, `jk_hew
 (30, '62c67c560e2be', 'Dara 1-2 Tahun', 'Jantan', 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0),
 (31, '62c67c560e2be', 'Dara 1-2 Tahun', 'Betina', 0, 0, 0, 5, 0, 0, 0, 3, 0, 0, 0),
 (32, '62c67c560e2be', 'Dewasa > 2 Tahun', 'Jantan', 0, 0, 0, 0, 4, 0, 3, 0, 0, 0, 0),
-(33, '62c67c560e2be', 'Dewasa > 2 Tahun', 'Betina', 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0);
+(33, '62c67c560e2be', 'Dewasa > 2 Tahun', 'Betina', 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0),
+(34, '62cbe641e8892', 'Anak 0-1 Tahun', 'Jantan', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(35, '62cbe641e8892', 'Anak 0-1 Tahun', 'Betina', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(36, '62cbe641e8892', 'Dara 1-2 Tahun', 'Jantan', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(37, '62cbe641e8892', 'Dara 1-2 Tahun', 'Betina', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(38, '62cbe641e8892', 'Dewasa > 2 Tahun', 'Jantan', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(39, '62cbe641e8892', 'Dewasa > 2 Tahun', 'Betina', 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -365,7 +374,7 @@ ALTER TABLE `desa`
 -- AUTO_INCREMENT untuk tabel `hewan`
 --
 ALTER TABLE `hewan`
-  MODIFY `id_hewan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_hewan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `kecamatan`
@@ -389,7 +398,7 @@ ALTER TABLE `pemilik_ternak`
 -- AUTO_INCREMENT untuk tabel `populasi_detail`
 --
 ALTER TABLE `populasi_detail`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT untuk tabel `vaksin`
