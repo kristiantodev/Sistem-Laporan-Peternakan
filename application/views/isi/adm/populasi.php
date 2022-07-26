@@ -84,7 +84,11 @@
                                             <button type="button" class="btn btn-light">
                                     <i class="bx bx-check"></i> Terima</button>
                                 </a>
+                               
                                      <?php } ?>
+                                     <br>
+                                     <a href="<?php echo site_url('adm/populasi/hapus/'.$k->id_populasi); ?>" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-danger waves-effect waves-light" class="btn btn-danger"><i class='bx bx-trash'></i> Hapus</a>
+
 
                                    </td>
                                 </tr>
@@ -355,7 +359,7 @@ Populasi Hewan Ternak :
     <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header bg-danger">
-      <h5 class="modal-title"><font color='white'>Konfirmasi Penghapusan</font></h5>
+      <h5 class="modal-title"><font color='white'>Konfirmasi Penolakan</font></h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

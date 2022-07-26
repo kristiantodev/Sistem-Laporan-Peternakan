@@ -62,5 +62,19 @@ public function tolak($id)
         }
     }
 
+    public function hapus($id)
+    {
+        if($id==""){
+            $this->session->set_flashdata('error',"Data Gagal Di Hapus");
+            redirect('adm/populasi');
+        }else{
+           
+            $this->db->where('id_populasi', $id);
+            $this->db->delete('populasi');
+            $this->session->set_flashdata('sukses',"hapus");
+            redirect('adm/populasi');
+        }
+    }
+
 	
 }

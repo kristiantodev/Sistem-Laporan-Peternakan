@@ -98,7 +98,7 @@
             <div class="menu-title">Laporan Populasi</div>
           </a>
           <ul>
-            <li> <a href="<?php echo site_url();?>adm/laporan/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten/Kecamatan</a>
+            <li> <a href="<?php echo site_url();?>adm/laporan/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten</a>
             </li>
             <li> <a href="<?php echo site_url();?>adm/laporan"><i class="bx bx-right-arrow-alt"></i>Kecamatan/Desa</a>
             <li> <a href="<?php echo site_url();?>adm/laporan/klasifikasi"><i class="bx bx-right-arrow-alt"></i>Klasifikasi</a></li>
@@ -136,7 +136,7 @@
             <div class="menu-title">Laporan Populasi</div>
           </a>
           <ul>
-            <li> <a href="<?php echo site_url();?>kepala_dinas/populasi/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten/Kecamatan</a>
+            <li> <a href="<?php echo site_url();?>kepala_dinas/populasi/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten</a>
             </li>
             <li> <a href="<?php echo site_url();?>kepala_dinas/populasi"><i class="bx bx-right-arrow-alt"></i>Kecamatan/Desa</a></li>
             <li> <a href="<?php echo site_url();?>kepala_dinas/populasi/klasifikasi"><i class="bx bx-right-arrow-alt"></i>Klasifikasi</a></li>
