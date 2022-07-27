@@ -59,8 +59,8 @@ public function __construct()
                         redirect('kepala_bidang/dashboard');
                     }else if($this->session->userdata('level')=="Pegawai"){
                         redirect('pegawai/dashboard');
-                    }else if($this->session->userdata('level')=="Admin Desa"){
-                        redirect('desa/dashboard');
+                    }else if($this->session->userdata('level')=="Petugas Vaksin"){
+                        redirect('petugas/dashboard');
                     }
 
                }else{

@@ -125,6 +125,7 @@
                                     <option value="Administrator" readonly>Administrator</option>
                                     <option value="Kepala Dinas" readonly>Kepala Dinas</option>
                                     <option value="Kepala Bidang" readonly>Kepala Bidang</option>
+                                    <option value="Petugas Vaksin" readonly>Petugas Vaksin</option>
                                            </select>
                         </fieldset>  
                          

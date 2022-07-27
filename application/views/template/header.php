@@ -113,12 +113,19 @@
           </a>
         </li>
 
-<?php }else if($this->session->userdata('level') == "Admin Desa"){ ?>
+<?php }else if($this->session->userdata('level') == "Petugas Vaksin"){ ?>
    <li>
-          <a href="<?php echo site_url();?>desa/dashboard">
+          <a href="<?php echo site_url();?>petugas/dashboard">
             <div class="parent-icon"><i class='bx bx-cookie'></i>
             </div>
             <div class="menu-title">Dashboard</div>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo site_url();?>petugas/populasi">
+            <div class="parent-icon"><i class='bx bx-folder'></i>
+            </div>
+            <div class="menu-title">Populasi</div>
           </a>
         </li>
   <?php }else if($this->session->userdata('level') == "Kepala Dinas"){ ?>

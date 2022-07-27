@@ -72,6 +72,21 @@
                                        }
                                       ?>
                                         <span class="<?=$badge2;?>"><?=$status2;?></span>
+                                        
+                                 <br>ACC Petugas Vaksin :<br>
+                                      <?php
+                                       if ($k->acc_petugas == 0) {
+                                          $status2="Belum di ACC";
+                                          $badge2="badge bg-info";
+                                       }else if ($k->acc_petugas == 1){
+                                          $status2="Data Diterima";
+                                          $badge2="badge bg-success";
+                                       }else{
+                                          $status2="Data Ditolak";
+                                          $badge2="badge bg-danger";
+                                       }
+                                      ?>
+                                        <span class="<?=$badge2;?>"><?=$status2;?></span>
                                       </td>
                                    <td>
                                      <?php if ($k->admin_acc == 0) { ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jul 2022 pada 06.42
+-- Waktu pembuatan: 27 Jul 2022 pada 12.03
 -- Versi server: 5.7.21-log
 -- Versi PHP: 8.0.0
 
@@ -166,22 +166,22 @@ CREATE TABLE `populasi` (
   `admin_acc` int(11) NOT NULL,
   `kep_bidang_acc` int(11) NOT NULL,
   `id_pemilik` int(11) NOT NULL,
-  `status_kepemilikan` varchar(30) NOT NULL
+  `status_kepemilikan` varchar(30) NOT NULL,
+  `acc_petugas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `populasi`
 --
 
-INSERT INTO `populasi` (`id_populasi`, `nm_populasi`, `id_desa`, `file`, `bulan`, `tahun`, `is_final`, `admin_acc`, `kep_bidang_acc`, `id_pemilik`, `status_kepemilikan`) VALUES
-('62c453513dd1b', 'Populasi Desa Indralaya Indah Januari 2022', 1, '62c453513dd1b.pdf', 'Januari', '2022', 0, 1, 1, 0, ''),
-('62c45ab52fc4c', 'Populasi Desa Indralaya Indah Februari2022', 1, 'default.png', 'Juli', '2004', 0, 1, 1, 0, ''),
-('62c46593d1bfe', 'Populasi Desa Kaliwulu Januari 2022', 2, 'default.png', 'Januari', '2003', 0, 1, 1, 0, ''),
-('62c4d76d647a8', 'Populasi data Ternak Indralaya Indah 2022', 1, 'default.png', 'Januari', '2020', 0, 1, 2, 0, ''),
-('62c4e2529274d', 'Agung', 2, 'default.png', 'Februari', '2002', 0, 1, 1, 0, ''),
-('62c66fa3338f3', 'Populasi hewan milik Kris', 1, 'default.png', 'Juli', '2022', 0, 1, 1, 1, 'Pribadi'),
-('62c67c560e2be', 'Populasi Hewan Gaduan Test', 2, 'default.png', 'Juli', '2022', 0, 1, 1, 2, 'Gaduan'),
-('62cbe641e8892', 'Populasi Desa Indralaya Indah Januari 2022', 2, 'default.png', 'Juli', '2022', 0, 0, 0, 2, 'Gaduan');
+INSERT INTO `populasi` (`id_populasi`, `nm_populasi`, `id_desa`, `file`, `bulan`, `tahun`, `is_final`, `admin_acc`, `kep_bidang_acc`, `id_pemilik`, `status_kepemilikan`, `acc_petugas`) VALUES
+('62c453513dd1b', 'Populasi Desa Indralaya Indah Januari 2022', 1, '62c453513dd1b.pdf', 'Januari', '2022', 0, 1, 1, 0, '', 0),
+('62c45ab52fc4c', 'Populasi Desa Indralaya Indah Februari2022', 1, 'default.png', 'Juli', '2004', 0, 1, 1, 0, '', 0),
+('62c46593d1bfe', 'Populasi Desa Kaliwulu Januari 2022', 2, 'default.png', 'Januari', '2003', 0, 1, 1, 0, '', 2),
+('62c4d76d647a8', 'Populasi data Ternak Indralaya Indah 2022', 1, 'default.png', 'Januari', '2020', 0, 1, 2, 0, '', 0),
+('62c66fa3338f3', 'Populasi hewan milik Kris', 1, 'default.png', 'Juli', '2022', 0, 1, 1, 1, 'Pribadi', 1),
+('62c67c560e2be', 'Populasi Hewan Gaduan Test', 2, 'default.png', 'Juli', '2022', 0, 1, 1, 2, 'Gaduan', 1),
+('62cbe641e8892', 'Populasi Desa Indralaya Indah Januari 2022', 2, 'default.png', 'Juli', '2022', 0, 0, 0, 2, 'Gaduan', 0);
 
 -- --------------------------------------------------------
 
@@ -272,7 +272,8 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `nm_user`, `level`, `foto
 ('62c3a2c3986eb', 'kepala_bidang', '$2y$10$zhXf8HZ6YBvF16cO44OgKOJhY5DzUZpA3AD23IN8wj9An4W4ph.6S', 'dr. Ikhlasul Amal, M.Kom', 'Kepala Bidang', '1.jpg', 0),
 ('62c3cea438ad9', '2022001', '$2y$10$Fftsdk6koBSJxfoSTlTRDeFYLsiiOCikvIwcrof0aHJ7hRCUsBfc6', 'Rizky', 'Pegawai', '840018941.JPG', 1),
 ('62c4652c36640', '2022002', '$2y$10$hCzQLsEeazepp1C/82JsHOVpkawZCvg.eyQ/os5eiXBIYNCtIEcpq', 'Kristianto', 'Pegawai', '1.jpg', 2),
-('62c527a3ae39b', 'cickesambi', '$2y$10$yTIXKivTu9A1ypzlJ9B8UOOrtEcSFjReO0IFW1ZKPMLaSVtW16Zsq', 'manda', 'Kepala Dinas', '1.jpg', 0);
+('62c527a3ae39b', 'cickesambi', '$2y$10$yTIXKivTu9A1ypzlJ9B8UOOrtEcSFjReO0IFW1ZKPMLaSVtW16Zsq', 'manda', 'Kepala Dinas', '1.jpg', 0),
+('62e10579e67cc', 'budi', '$2y$10$Jr56aruFoLdM5gpWjYt1wuOfO64Adr9CUd/lUHOdwm4iX4y4pb0Z.', 'Ini Budi', 'Petugas Vaksin', '1.jpg', 0);
 
 -- --------------------------------------------------------
 

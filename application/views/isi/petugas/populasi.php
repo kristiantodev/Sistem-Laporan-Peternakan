@@ -42,10 +42,7 @@
                                       <?php echo $k->nm_populasi ?></a></td>
                                     <td>Desa <?php echo $k->nm_desa ?><br>Kec.<?php echo $k->nm_kecamatan ?></td>
                                      <td><?php echo $k->bulan ?> <?php echo $k->tahun ?></td>
-                                     <td>
-
-                                     
-                                     ACC Admin :<br>
+                                     <td>ACC Admin :<br>
                                       <?php
                                        if ($k->admin_acc == 0) {
                                           $status="New";
@@ -73,8 +70,9 @@
                                           $badge2="badge bg-danger";
                                        }
                                       ?>
-                                        <span class="<?=$badge2;?>"><?=$status2;?></span>
-                                        
+
+<span class="<?=$badge;?>"><?=$status2;?></span>
+
                                  <br>ACC Petugas Vaksin :<br>
                                       <?php
                                        if ($k->acc_petugas == 0) {
@@ -89,11 +87,10 @@
                                        }
                                       ?>
                                         <span class="<?=$badge2;?>"><?=$status2;?></span>
-                                        
                                       </td>
                                    <td>
-                                     <?php if ($k->kep_bidang_acc == 0) { ?>
-                                      <a onclick="deleteConfirm('<?php echo site_url('kepala_bidang/populasi/tolak/'.$k->id_populasi); ?>')" href="#!" data-bs-toggle="modal" data-bs-target="#modal-danger">
+                                     <?php if ($k->acc_petugas == 0) { ?>
+                                      <a onclick="deleteConfirm('<?php echo site_url('petugas/populasi/tolak/'.$k->id_populasi); ?>')" href="#!" data-bs-toggle="modal" data-bs-target="#modal-danger">
                                             <button type="button" class="btn btn-light">
                                     <i class="bx bx-trash"></i> Tolak&nbsp;&nbsp;</button>
                                 </a>
@@ -347,7 +344,7 @@ Populasi Hewan Ternak :
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                       </div>
-                      <form action="<?php echo site_url('kepala_bidang/populasi/terima'); ?>" method="post">
+                      <form action="<?php echo site_url('petugas/populasi/terima'); ?>" method="post">
                         <input type="hidden" name="id_populasi" value="<?=$k->id_populasi?>">
                       <div class="modal-body">
                         Apakah anda yakin ??

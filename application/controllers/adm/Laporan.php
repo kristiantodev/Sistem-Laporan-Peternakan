@@ -38,7 +38,7 @@ class Laporan extends My_Controller {
                 LEFT JOIN populasi ON populasi.id_populasi=populasi_detail.id_populasi
                 LEFT JOIN desa ON desa.id_desa=populasi.id_desa
                 LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan
-                WHERE desa.id_kecamatan='$id_kecamatan' AND bulan='$bulan' AND tahun='$tahun' AND populasi.kep_bidang_acc=1
+                WHERE desa.id_kecamatan='$id_kecamatan' AND bulan='$bulan' AND tahun='$tahun' AND populasi.acc_petugas=1
                 GROUP BY desa.nm_desa");
         }else{
             $bulan = "";
@@ -59,7 +59,7 @@ class Laporan extends My_Controller {
                 LEFT JOIN populasi ON populasi.id_populasi=populasi_detail.id_populasi
                 LEFT JOIN desa ON desa.id_desa=populasi.id_desa
                 LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan
-                WHERE populasi.kep_bidang_acc=1
+                WHERE populasi.acc_petugas=1
                 GROUP BY desa.nm_desa");
         }
 
@@ -101,7 +101,7 @@ class Laporan extends My_Controller {
                 LEFT JOIN populasi ON populasi.id_populasi=populasi_detail.id_populasi
                 LEFT JOIN desa ON desa.id_desa=populasi.id_desa
                 LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan
-                WHERE bulan='$bulan' AND tahun='$tahun' AND populasi.kep_bidang_acc=1
+                WHERE bulan='$bulan' AND tahun='$tahun' AND populasi.acc_petugas=1
                 GROUP BY kecamatan.nm_kecamatan");
         }else{
             $bulan = "";
@@ -121,7 +121,7 @@ class Laporan extends My_Controller {
                 LEFT JOIN populasi ON populasi.id_populasi=populasi_detail.id_populasi
                 LEFT JOIN desa ON desa.id_desa=populasi.id_desa
                 LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan
-                WHERE populasi.kep_bidang_acc=1
+                WHERE populasi.acc_petugas=1
                 GROUP BY kecamatan.nm_kecamatan");
         }
 
@@ -173,7 +173,7 @@ class Laporan extends My_Controller {
             LEFT JOIN desa ON desa.id_desa=populasi.id_desa
             LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan
             LEFT JOIN pemilik_ternak ON populasi.id_pemilik=pemilik_ternak.id_pemilik
-            WHERE bulan='$bulan' AND tahun='$tahun' AND populasi.kep_bidang_acc=1
+            WHERE bulan='$bulan' AND tahun='$tahun' AND populasi.acc_petugas=1
             GROUP BY ".$jenisKlasifikasi;
 
             $populasiDetail = $this->db->query($query);
@@ -196,7 +196,7 @@ class Laporan extends My_Controller {
                 LEFT JOIN populasi ON populasi.id_populasi=populasi_detail.id_populasi
                 LEFT JOIN desa ON desa.id_desa=populasi.id_desa
                 LEFT JOIN kecamatan ON kecamatan.id_kecamatan=desa.id_kecamatan
-                WHERE populasi.kep_bidang_acc=1 AND bulan='$bulan' AND tahun='$tahun'
+                WHERE populasi.acc_petugas=1 AND bulan='$bulan' AND tahun='$tahun'
                 GROUP BY kecamatan.nm_kecamatan");
         }
 
