@@ -54,12 +54,9 @@
           </a>
         </li>
         <li>
-          <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class='bx bx-book'></i>
-            </div>
+          
             <div class="menu-title">Data Master</div>
-          </a>
-          <ul>
+        
             <li> <a href="<?php echo site_url();?>adm/kecamatan"><i class="bx bx-right-arrow-alt"></i>Kecamatan</a>
             </li>
             <li> <a href="<?php echo site_url();?>adm/desa"><i class="bx bx-right-arrow-alt"></i>Desa</a>
@@ -70,19 +67,16 @@
             </li>
             <li> <a href="<?php echo site_url();?>adm/hewan"><i class="bx bx-right-arrow-alt"></i>Jenis Hewan</a>
             </li>
-          </ul>
+          
         </li>
         <li>
-          <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class='bx bx-book-open'></i>
-            </div>
+          
             <div class="menu-title">Data Vaksin Ternak</div>
-          </a>
-          <ul>
+       
             <li> <a href="<?php echo site_url();?>adm/vaksin"><i class="bx bx-right-arrow-alt"></i>Tambah Ternak Vaksin</a>
             </li>
             <li> <a href="<?php echo site_url();?>adm/vaksin/list"><i class="bx bx-right-arrow-alt"></i>Rekap Data Vaksin</a>
-          </ul>
+          
         </li>
         <li>
           <a href="<?php echo site_url();?>adm/populasi">
@@ -92,20 +86,16 @@
           </a>
         </li>
         <li>
-          <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class='bx bx-folder-open'></i>
-            </div>
+         
             <div class="menu-title">Laporan Populasi</div>
-          </a>
-          <ul>
+        
             <li> <a href="<?php echo site_url();?>adm/laporan/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten</a>
             </li>
             <li> <a href="<?php echo site_url();?>adm/laporan"><i class="bx bx-right-arrow-alt"></i>Kecamatan/Desa</a>
             <li> <a href="<?php echo site_url();?>adm/laporan/klasifikasi"><i class="bx bx-right-arrow-alt"></i>Klasifikasi</a></li>
          
-          </ul>
+          
         </li>
-        <li>
           <a href="<?php echo site_url();?>adm/user">
             <div class="parent-icon"><i class='bx bx-user'></i>
             </div>
@@ -137,17 +127,14 @@
           </a>
         </li>
         <li>
-          <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class='bx bx-book-open'></i>
-            </div>
+          
             <div class="menu-title">Laporan Populasi</div>
-          </a>
-          <ul>
+         
             <li> <a href="<?php echo site_url();?>kepala_dinas/populasi/kabupaten"><i class="bx bx-right-arrow-alt"></i>Kabupaten</a>
             </li>
             <li> <a href="<?php echo site_url();?>kepala_dinas/populasi"><i class="bx bx-right-arrow-alt"></i>Kecamatan/Desa</a></li>
             <li> <a href="<?php echo site_url();?>kepala_dinas/populasi/klasifikasi"><i class="bx bx-right-arrow-alt"></i>Klasifikasi</a></li>
-          </ul>
+         
         </li>
         
     <?php }else if($this->session->userdata('level') == "Kepala Bidang"){ ?>
@@ -174,16 +161,13 @@
           </a>
         </li>
         <li>
-          <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class='bx bx-book-open'></i>
-            </div>
+          
             <div class="menu-title">Data Vaksin Ternak</div>
-          </a>
-          <ul>
+         
             <li> <a href="<?php echo site_url();?>pegawai/vaksin"><i class="bx bx-right-arrow-alt"></i>Tambah Ternak Vaksin</a>
             </li>
             <li> <a href="<?php echo site_url();?>pegawai/vaksin/list"><i class="bx bx-right-arrow-alt"></i>Rekap Data Vaksin</a>
-          </ul>
+         
         </li>
         <li>
           <a href="<?php echo site_url();?>pegawai/populasi">
